@@ -6,7 +6,121 @@
     <title>AAV Sweepstakes - Win Concert Tickets</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
     <style>
-        :root {
+        html, body {
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden; /* Fix horizontal scroll */
+      background-color: #0b0c10;
+      height: 100%;
+    }
+
+    .kendrick-drive-wrapper {
+      position: relative;
+      height: 120px; /* Increased height to fit image */
+      margin-top: 2rem;
+      overflow: visible; /* Ensure nothing is clipped */
+    }
+
+    .kendrick-drive {
+      position: absolute;
+      bottom: 0;
+      width: 150px;
+      animation: drive-across 8s linear infinite;
+    }
+
+    .kendrick-drive img {
+      width: 100%;
+      height: auto; /* Maintain aspect ratio */
+      display: block;
+    }
+
+    @keyframes drive-across {
+      0% {
+        left: -200px;
+      }
+      40% {
+        left: calc(50% - 75px); /* Pause at center */
+      }
+      60% {
+        left: calc(50% - 75px);
+      }
+      100% {
+        left: 100%;
+      }
+    }
+
+    :root {
+      --primary: #6C63FF;
+      --secondary: #FF6584;
+      --dark: #2D3748;
+      --light: #F7FAFC;
+      --accent: #48BB78;
+    }
+
+    body {
+      font-family: 'Segoe UI', system-ui, sans-serif;
+      background-color: var(--light);
+      color: var(--dark);
+    }
+
+    .container {
+      padding: 2rem;
+    }
+
+    .sweep-card {
+      background: white;
+      padding: 2rem;
+      border-radius: 1rem;
+      box-shadow: 0 10px 15px rgba(0,0,0,0.1);
+      margin-bottom: 2rem;
+    }
+
+    h1 {
+      color: var(--primary);
+      text-align: center;
+    }
+
+    .btn {
+      display: inline-block;
+      background: var(--primary);
+      color: white;
+      padding: 0.5rem 1rem;
+      border-radius: 999px;
+      text-decoration: none;
+      transition: background 0.3s ease;
+    }
+
+    .btn:hover {
+      background: var(--secondary);
+    }
+  </style>
+</head>
+<body>
+
+  <header class="animate__animated animate__fadeIn">
+    <img src="https://cdn.prod.website-files.com/67ca33b3a6021008db2fd785/67ca398384d016432ab21286_AAV_Submark_White.png" alt="AAV Logo" class="logo" style="width: 120px; margin: 1rem auto; display: block;">
+    <h1 class="animate__animated animate__fadeInUp">AAV Sweepstakes</h1>
+    <p class="tagline animate__animated animate__fadeInUp animate__delay-1s" style="text-align: center;">We got you! We got us.</p>
+  </header>
+
+  <div class="container">
+    <section class="sweep-card">
+      <h2>Kendrick Lamar & SZA</h2>
+      <p>(2) Floor Tickets | Grand National Tour</p>
+      <div class="action-buttons">
+        <a href="https://links.impactive.io/t/p1nz3t7d?start=0" class="btn">Enter Now</a>
+        <a href="/kendrick/kendrick-rules" class="btn" style="background: white; color: var(--primary); border: 2px solid var(--primary);">Rules</a>
+      </div>
+
+      <!-- 🚗 Kendrick Car Scene -->
+      <div class="kendrick-drive-wrapper">
+        <div class="kendrick-drive">
+          <img src="kendrik.png" alt="Pixel Car">
+        </div>
+      </div>
+    </section>
+  </div>
+:root {
             --primary: #6C63FF;
             --secondary: #FF6584;
             --dark: #2D3748;
