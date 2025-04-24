@@ -1,20 +1,20 @@
-<div id="background">
-        <div id="box">
-            <div class="button">
-                <img src="alien.png" type="button" id="my-button">
-                <br>
-                <p>Click The Alien!</p>
-            </div>
-        </div>
-        <script>
-                var myData = {
-                1: {
-                imageUrl: "8.gif",
-                },
-        };
-function changeImage() {
-        var randomNumber = Math.floor((Math.random() * 1) + 1);
-        document.getElementById("background").style.background = "url('" + myData[randomNumber].imageUrl + "')";
-        document.getElementById("text-box").innerHTML = myData[randomNumber].text;
-}
-    document.getElementById("my-button").addEventListener("click", changeImage);
+
+
+<img src="music_note.png" id="musicNote" alt="Music Note" style="cursor:pointer;" />
+
+<!-- Hidden Audio Player -->
+<audio id="musicPlayer" preload="auto">
+<source src="Not Like Us.mp3" type="audio/mp3">
+Your browser does not support the audio element.
+</audio>
+
+<script type="text/javascript">
+// Get the image element and the audio element
+var musicNote = document.getElementById('musicNote');
+var musicPlayer = document.getElementById('musicPlayer');
+
+// Event listener to play the music when the image is clicked
+musicNote.addEventListener('click', function() {
+    musicPlayer.play();
+});
+</script>
