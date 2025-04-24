@@ -1,0 +1,50 @@
+<div class="tilted-shimmer-container">
+          <img src="/images/beyonce.png" alt="Beyoncé" />
+          <div class="shimmer"></div>
+
+
+
+
+
+              .tilted-shimmer-container {
+      position: relative;
+      transform: rotate(5deg);
+      overflow: hidden;
+      margin-top: 1rem;
+      border-radius: 10px;
+    }
+
+    .tilted-shimmer-container img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 10px;
+    }
+
+    .shimmer {
+      position: absolute;
+      top: 0;
+      left: -75%;
+      width: 50%;
+      height: 100%;
+      background: linear-gradient(
+        to right,
+        rgba(255, 255, 255, 0) 0%,
+        rgba(255, 255, 255, 0.4) 50%,
+        rgba(255, 255, 255, 0) 100%
+      );
+      transform: skewX(-20deg);
+      animation: shimmer 2.5s infinite;
+      pointer-events: none;
+    }
+
+    @keyframes shimmer {
+      0% {
+        left: -75%;
+      }
+      100% {
+        left: 125%;
+      }
+    }
+
+    
