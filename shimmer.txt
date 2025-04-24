@@ -1,53 +1,76 @@
 
 
 
-<div class="tilted-shimmer-container">
-          <img src="/images/beyonce.png" alt="Beyoncé" />
-          <div class="shimmer"></div>
+<!-- Beyoncé Card -->
+<div class="centered-card animate__animated animate__fadeInLeft shimmer">
+  <div class="image-container">
+    <img src="/images/beyonce.png" alt="Beyoncé" />
+  </div>
+  <div class="card-content">
+    <h3>Beyoncé</h3>
+    <p>(2) Suite Tickets | Cowboy Carter Tour</p>
+    <div class="action-buttons">
+      <a href="https://links.impactive.io/t/20twsanl?start=1" class="btn">Enter Now</a>
+      <a href="/beyonce/cowboycarterrules" class="btn btn-outline">Rules</a>
+    </div>
+  </div>
+</div>
 
 
 
 
-
-.tilted-shimmer-container {
-      position: relative;
-      transform: rotate(5deg);
-      overflow: hidden;
-      margin-top: 1rem;
-      border-radius: 10px;
-    }
-
-    .tilted-shimmer-container img {
-  width: 100%;
-  max-height: 180px; /* Scales image down */
-  display: block;
-  border-radius: 10px;
-  object-fit: cover;
-  margin-top: 20px; /* Pushes image downward */
+.centered-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 20px;
+  max-width: 400px;
+  margin: 40px auto;
+  background-color: #fff;
+  border-radius: 16px;
+  box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+  position: relative;
+  overflow: hidden;
 }
 
-    .shimmer {
-      position: absolute;
-      top: 0;
-      left: -75%;
-      width: 50%;
-      height: 100%;
-      background: linear-gradient(
-        to right,
-        rgba(255, 255, 255, 0) 0%,
-        rgba(255, 255, 255, 0.4) 50%,
-        rgba(255, 255, 255, 0) 100%
-      );
-      transform: skewX(-20deg);
-      animation: shimmer 2.5s infinite;
-      pointer-events: none;
-    }
+/* Shimmer effect */
+.shimmer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  height: 100%;
+  width: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+  animation: shimmer 2s infinite;
+  z-index: 1;
+  pointer-events: none;
+}
 
-    @keyframes shimmer {
-      0% {
-        left: -75%;
-      }
-      100% {
-        left: 125%;
-      }
-    }
+/* shimmer animation */
+@keyframes shimmer {
+  0% { left: -100%; }
+  100% { left: 100%; }
+}
+
+.image-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  z-index: 2;
+}
+
+.image-container img {
+  max-width: 100%;
+  max-height: 180px;
+  border-radius: 10px;
+  object-fit: cover;
+  margin-top: 20px;
+}
+
+.card-content {
+  z-index: 2;
+  position: relative;
+}
