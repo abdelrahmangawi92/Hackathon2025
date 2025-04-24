@@ -6,100 +6,105 @@
     <title>AAV Sweepstakes - Win Concert Tickets</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
     <style>
-        :root {
+    :root {
             --primary: #6C63FF;
             --secondary: #FF6584;
             --dark: #2D3748;
             --light: #F7FAFC;
             --accent: #48BB78;
-        }
+    }
         
-        * {
+    * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
             font-family: 'Segoe UI', system-ui, sans-serif;
-        }
+    }
         
-        body {
+    body {
             background-color: var(--light);
             color: var(--dark);
             overflow-x: hidden;
-        }
+    }
         
-        header {
+    header {
             background: linear-gradient(135deg, var(--primary), var(--secondary));
             padding: 2rem;
             text-align: center;
             position: relative;
             overflow: hidden;
-        }
+    }
+    .navbar {
+        display: flex;
+        justify-content: center;
+        gap: 1rem; 
+    }
         
-        .logo {
+    .logo {
             width: 120px;
             filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
             transition: transform 0.3s ease;
-        }
+    }
         
-        .logo:hover {
+    .logo:hover {
             transform: scale(1.05) rotate(-5deg);
-        }
+    }
         
-        .particle {
+    .particle {
             position: absolute;
             background-color: rgba(255,255,255,0.7);
             border-radius: 50%;
             pointer-events: none;
-        }
+    }
         
-        h1 {
+    h1 {
             color: white;
             font-size: 2.5rem;
             margin: 1rem 0;
             text-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        }
+    }
         
-        .tagline {
+    .tagline {
             color: white;
             font-size: 1.2rem;
             opacity: 0.9;
             max-width: 600px;
             margin: 0 auto;
-        }
+    }
         
-        .container {
+    .container {
             max-width: 1200px;
             margin: 3rem auto;
             padding: 0 2rem;
-        }
+    }
         
-        .intro {
+    .intro {
             text-align: center;
             margin-bottom: 3rem;
-        }
+    }
         
-        .intro h2 {
+    .intro h2 {
             font-size: 2rem;
             margin-bottom: 1rem;
             color: var(--primary);
-        }
+    }
         
-        .intro p {
+    .intro p {
             font-size: 1.1rem;
             line-height: 1.6;
             color: var(--dark);
             max-width: 700px;
             margin: 0 auto;
-        }
+    }
         
-        .sweeps-grid {
+    .sweeps-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
             margin: 3rem 0;
-        }
+    }
         
-        .sweep-card {
+    .sweep-card {
             background: white;
             border-radius: 12px;
             overflow: hidden;
@@ -107,7 +112,7 @@
             transition: all 0.3s ease;
             transform: translateY(0);
             position: relative;
-        }
+    }
         
         .sweep-card:hover {
             transform: translateY(-5px);
@@ -223,7 +228,6 @@
             font-size: 0.9rem;
         }
         
-        /* Animations */
         @keyframes float {
             0%, 100% { transform: translateY(0); }
             50% { transform: translateY(-10px); }
@@ -241,7 +245,6 @@
             animation-delay: 1s;
         }
         
-        /* Responsive */
         @media (max-width: 768px) {
             .sweeps-grid {
                 grid-template-columns: 1fr;
@@ -255,14 +258,19 @@
 </head>
 <body>
     <header class="animate__animated animate__fadeIn">
-        <img src="https://cdn.prod.website-files.com/67ca33b3a6021008db2fd785/67ca398384d016432ab21286_AAV_Submark_White.png" alt="AAV Logo" class="logo floating">
+        <a href="1stdraft.html"><img src="https://cdn.prod.website-files.com/67ca33b3a6021008db2fd785/67ca398384d016432ab21286_AAV_Submark_White.png" href="#" alt="AAV Logo" class="logo floating"></a>
         <h1 class="animate__animated animate__fadeInUp">AAV Sweepstakes</h1>
         <p class="tagline animate__animated animate__fadeInUp animate__delay-1s">We got you! We got us.</p>
-        
-        <!-- Particles will be added by JS -->
         <div id="particles"></div>
     </header>
-    
+    <div class="container">
+        <nav class="animate_animated animate__fadeIn animate__delay-2s navbar">
+            <a href="1stdraft.html" class="btn">Home</a>
+            <a href="kendrick/kendrick-rules.html" class="btn">Kendrick</a>
+            <a href="beyonce/cowboycarterrules.html" class="btn">Beyoncé</a>
+            <a href="privacy-policy.html" class="btn btn-outline">Privacy Policy</a>
+        </nav>
+    </div>
     <div class="container">
         <section class="intro animate__animated animate__fadeIn animate__delay-1s">
             <h2>Feeling Lucky?</h2>
@@ -313,7 +321,7 @@
         
         <div class="footer-links">
             <a href="#">Home</a>
-            <a href="/privacy-policy">Privacy Policy</a>
+            <a href="privacy-policy.html">Privacy Policy</a>
             <a href="/terms">Terms</a>
         </div>
         
