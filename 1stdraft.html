@@ -6,113 +6,107 @@
     <title>AAV Sweepstakes - Win Concert Tickets</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
     <style>
-    :root {
+        :root {
             --primary: #6C63FF;
             --secondary: #FF6584;
             --dark: #2D3748;
             --light: #F7FAFC;
             --accent: #48BB78;
-    }
+        }
         
-    * {
+        * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
             font-family: 'Segoe UI', system-ui, sans-serif;
-    }
+        }
         
-    body {
+        body {
             background-color: var(--light);
             color: var(--dark);
             overflow-x: hidden;
-    }
+        }
         
-    header {
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
+        header {
+            background: linear-gradient(135deg, var(--dark), var(--primary));
             padding: 2rem;
             text-align: center;
             position: relative;
             overflow: hidden;
-    }
-    .navbar {
-        display: flex;
-        justify-content: center;
-        gap: 1rem; 
-    }
+        }
         
-    .logo {
+        .navbar {
+            display: flex;
+            justify-content: center;
+            gap: 1rem; 
+        }
+        
+        .logo {
             width: 120px;
             filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
             transition: transform 0.3s ease;
-    }
+        }
         
-    .logo:hover {
+        .logo:hover {
             transform: scale(1.05) rotate(-5deg);
-    }
+        }
         
-    .particle {
-            position: absolute;
-            background-color: rgba(255,255,255,0.7);
-            border-radius: 50%;
-            pointer-events: none;
-    }
-        
-    h1 {
+        h1 {
             color: white;
             font-size: 2.5rem;
             margin: 1rem 0;
             text-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    }
+        }
         
-    .tagline {
+        .tagline {
             color: white;
             font-size: 1.2rem;
             opacity: 0.9;
             max-width: 600px;
             margin: 0 auto;
-    }
+        }
         
-    .container {
+        .container {
             max-width: 1200px;
             margin: 3rem auto;
             padding: 0 2rem;
-    }
+        }
         
-    .intro {
+        .intro {
             text-align: center;
             margin-bottom: 3rem;
-    }
+        }
         
-    .intro h2 {
+        .intro h2 {
             font-size: 2rem;
             margin-bottom: 1rem;
             color: var(--primary);
-    }
+        }
         
-    .intro p {
+        .intro p {
             font-size: 1.1rem;
             line-height: 1.6;
             color: var(--dark);
             max-width: 700px;
             margin: 0 auto;
-    }
+        }
         
-    .sweeps-grid {
+        .sweeps-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
             margin: 3rem 0;
-    }
+        }
         
-    .sweep-card {
-            background: white;
+        .sweep-card {
+            background: black;
             border-radius: 12px;
             overflow: hidden;
             box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);
             transition: all 0.3s ease;
             transform: translateY(0);
             position: relative;
-    }
+        }
         
         .sweep-card:hover {
             transform: translateY(-5px);
@@ -141,14 +135,72 @@
         }
         
         .card-content p {
-            color: #4A5568;
             margin-bottom: 1.5rem;
             line-height: 1.5;
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: white;
         }
         
-        .btn {
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-btn {
+            background: transparent;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .dropdown-btn:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: white;
+            min-width: 160px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .dropdown-content a {
+            color: var(--dark);
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            transition: background-color 0.3s ease;
+        }
+
+        .dropdown-content a:hover {
+            background-color: var(--primary);
+            color: white;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .btn:hover {
+            background: var(--secondary);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        
+        .btn, .btn-outline {
             display: inline-flex;
             align-items: center;
+            justify-content: center;
             background: var(--primary);
             color: white;
             padding: 0.75rem 1.5rem;
@@ -158,32 +210,27 @@
             transition: all 0.3s ease;
             border: none;
             cursor: pointer;
+            width: 150px;
+            height: 50px; 
+            text-align: center;
         }
-        
-        .btn:hover {
+
+        .btn:hover, .btn-outline:hover {
             background: var(--secondary);
+            color: white;
             transform: translateY(-2px);
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
-        
+
         .btn-outline {
-            background: transparent;
-            border: 2px solid var(--primary);
-            color: var(--primary);
+            background: var(--primary);
+            color: white;
+            border: none;
         }
         
         .btn-outline:hover {
             background: var(--primary);
             color: white;
-        }
-        
-        .btn svg {
-            margin-left: 8px;
-            transition: transform 0.3s ease;
-        }
-        
-        .btn:hover svg {
-            transform: translateX(3px);
         }
         
         .action-buttons {
@@ -192,10 +239,23 @@
         }
         
         footer {
-            background: var(--dark);
+            background: linear-gradient(135deg, var(--dark), var(--primary));
             color: white;
             padding: 3rem 2rem;
             text-align: center;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 1rem;
+        }
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
         }
         
         .social-icon {
@@ -208,66 +268,58 @@
             transform: scale(1.2) rotate(10deg);
         }
         
-        .footer-links {
-            margin: 1.5rem 0;
+        .kendrick-drive-wrapper {
+            position: relative;
+            height: 120px;
+            margin-top: 2rem;
+            overflow: visible;
         }
-        
-        .footer-links a {
-            color: white;
-            text-decoration: none;
-            margin: 0 15px;
-            transition: color 0.3s ease;
+
+        .kendrick-drive {
+            position: absolute;
+            bottom: 0;
+            width: 150px;
+            animation: drive-across 8s linear infinite;
         }
-        
-        .footer-links a:hover {
-            color: var(--secondary);
+
+        .kendrick-drive img {
+            width: 100%;
+            height: auto;
+            display: block;
         }
-        
-        .copyright {
-            opacity: 0.7;
-            font-size: 0.9rem;
-        }
-        
-        @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
-        }
-        
-        .floating {
-            animation: float 6s ease-in-out infinite;
-        }
-        
-        .delay-1 {
-            animation-delay: 0.5s;
-        }
-        
-        .delay-2 {
-            animation-delay: 1s;
-        }
-        
-        @media (max-width: 768px) {
-            .sweeps-grid {
-                grid-template-columns: 1fr;
+
+        @keyframes drive-across {
+            0% {
+                left: -200px;
             }
-            
-            .action-buttons {
-                flex-direction: column;
+            40% {
+                left: calc(50% - 75px);
+            }
+            60% {
+                left: calc(50% - 75px);
+            }
+            100% {
+                left: 100%;
             }
         }
     </style>
 </head>
 <body>
     <header class="animate__animated animate__fadeIn">
-        <a href="1stdraft.html"><img src="https://cdn.prod.website-files.com/67ca33b3a6021008db2fd785/67ca398384d016432ab21286_AAV_Submark_White.png" href="#" alt="AAV Logo" class="logo floating"></a>
+        <a href="1stdraft.html"><img src="https://cdn.prod.website-files.com/67ca33b3a6021008db2fd785/67ca398384d016432ab21286_AAV_Submark_White.png" alt="AAV Logo" class="logo floating"></a>
         <h1 class="animate__animated animate__fadeInUp">AAV Sweepstakes</h1>
         <p class="tagline animate__animated animate__fadeInUp animate__delay-1s">We got you! We got us.</p>
-        <div id="particles"></div>
     </header>
     <div class="container">
         <nav class="animate_animated animate__fadeIn animate__delay-2s navbar">
             <a href="1stdraft.html" class="btn">Home</a>
-            <a href="kendrick/kendrick-rules.html" class="btn">Kendrick</a>
-            <a href="beyonce/cowboycarterrules.html" class="btn">Beyoncé</a>
+            <div class="dropdown">
+                <button class="btn dropdown-btn">Rules</button>
+                <div class="dropdown-content">
+                    <a href="kendrick/kendrick-rules.html">Kendrick</a>
+                    <a href="beyonce/cowboycarterrules.html">Beyoncé</a>
+                </div>
+            </div>
             <a href="privacy-policy.html" class="btn btn-outline">Privacy Policy</a>
         </nav>
     </div>
@@ -279,35 +331,30 @@
         
         <div class="sweeps-grid">
             <div class="sweep-card animate__animated animate__fadeInLeft">
-                <img src="https://cdn.prod.website-files.com/67ca33b3a6021008db2fd785/67f9c6d3fc9ab563a46b3491_Beyonce_Webflow.png" alt="Beyoncé" class="artist-image">
+                <img src="images\Beyonce_Webflow.png" alt="Beyoncé" class="artist-image">
                 <div class="card-content">
                     <h3>Beyoncé</h3>
                     <p>(2) Suite Tickets | Cowboy Carter Tour</p>
                     <div class="action-buttons">
-                        <a href="https://app.impactive.io/campaigns/all-americans-vote/activities/4rgbgcs2" class="btn">
-                            Enter Now
-                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path fill-rule="evenodd" clip-rule="evenodd" d="M11.72 15L16.3472 10.357C16.7732 9.92932 16.7732 9.23603 16.3472 8.80962L11.72 4.16667L10.1776 5.71508L12.9425 8.4889H4.16669V10.6774H12.9425L10.1776 13.4522L11.72 15Z" fill="currentColor"/>
-                            </svg>
-                        </a>
+                        <a href="https://app.impactive.io/campaigns/all-americans-vote/activities/4rgbgcs2" class="btn">Enter Now</a>
                         <a href="beyonce/cowboycarterrules.html" class="btn btn-outline">Rules</a>
                     </div>
                 </div>
             </div>
             
             <div class="sweep-card animate__animated animate__fadeInRight">
-                <img src="https://cdn.prod.website-files.com/67ca33b3a6021008db2fd785/67db82021501865ec27624f6_Kendrick_Web_1.png" alt="Kendrick Lamar & SZA" class="artist-image">
+                <img src="images\Kendrick_Web_1.png" alt="Kendrick Lamar & SZA" class="artist-image">
                 <div class="card-content">
                     <h3>Kendrick Lamar & SZA</h3>
                     <p>(2) Floor Tickets | Grand National Tour</p>
                     <div class="action-buttons">
-                        <a href="https://links.impactive.io/t/p1nz3t7d?start=0" class="btn">
-                            Enter Now
-                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path fill-rule="evenodd" clip-rule="evenodd" d="M11.72 15L16.3472 10.357C16.7732 9.92932 16.7732 9.23603 16.3472 8.80962L11.72 4.16667L10.1776 5.71508L12.9425 8.4889H4.16669V10.6774H12.9425L10.1776 13.4522L11.72 15Z" fill="currentColor"/>
-                            </svg>
-                        </a>
+                        <a href="https://links.impactive.io/t/p1nz3t7d?start=0" class="btn">Enter Now</a>
                         <a href="kendrick/kendrick-rules.html" class="btn btn-outline">Rules</a>
+                    </div>
+                    <div class="kendrick-drive-wrapper">
+                        <div class="kendrick-drive">
+                            <img src="kendrik.png" alt="Pixel Car">
+                        </div>
                     </div>
                 </div>
             </div>
@@ -329,7 +376,6 @@
     </footer>
     
     <script>
-        // Create floating particles
         function createParticles() {
             const container = document.getElementById('particles');
             const particleCount = 20;
@@ -338,7 +384,6 @@
                 const particle = document.createElement('div');
                 particle.classList.add('particle');
                 
-                // Random properties
                 const size = Math.random() * 10 + 5;
                 const posX = Math.random() * 100;
                 const posY = Math.random() * 100;
@@ -358,7 +403,6 @@
             }
         }
         
-        // Add hover effect to sweep cards
         document.querySelectorAll('.sweep-card').forEach(card => {
             card.addEventListener('mouseenter', () => {
                 card.querySelector('.btn').classList.add('animate__pulse');
@@ -369,11 +413,9 @@
             });
         });
         
-        // Initialize when DOM is loaded
         document.addEventListener('DOMContentLoaded', () => {
             createParticles();
             
-            // Animate elements when they come into view
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
