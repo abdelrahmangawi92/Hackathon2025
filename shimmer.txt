@@ -9,7 +9,7 @@
 
 
 
-              .tilted-shimmer-container {
+.tilted-shimmer-container {
       position: relative;
       transform: rotate(5deg);
       overflow: hidden;
@@ -18,11 +18,13 @@
     }
 
     .tilted-shimmer-container img {
-      width: 100%;
-      height: auto;
-      display: block;
-      border-radius: 10px;
-    }
+  width: 100%;
+  max-height: 180px; /* Scales image down */
+  display: block;
+  border-radius: 10px;
+  object-fit: cover;
+  margin-top: 20px; /* Pushes image downward */
+}
 
     .shimmer {
       position: absolute;
