@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kendrick Lamar x SZA: Grand National Tour Sweepstakes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <style>
+        :root {
+            --primary: #6C63FF;
+            --secondary: #FF6584;
+            --dark: #2D3748;
+            --light: #F7FAFC;
+            --accent: #48BB78;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', system-ui, sans-serif;
+        }
+        
+        body {
+            background-color: black;
+            color: white;
+            line-height: 1.6;
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--dark), var(--primary));
+            padding: 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .logo {
+            width: 120px;
+            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
+            transition: transform 0.3s ease;
+        }
+        
+        .logo:hover {
+            transform: scale(1.05) rotate(-5deg);
+        }
+        
+        h1, h2, h3 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 0 2rem;
+        }
+        
+        .hero-image {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+        }
+        
+        .rules-content {
+            background: rgba(255,255,255,0.05);
+            padding: 2rem;
+            border-radius: 12px;
+            margin-bottom: 2rem;
+        }
+        
+        select {
+            width: 100%;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 8px;
+            background: white; /* Change background to white */
+            color: black; /* Change text to black */
+            border: 1px solid var(--primary);
+            font-size: 1rem;
+        }
+        
+        .rule-section {
+            margin-bottom: 2rem;
+            padding: 1rem;
+            background: rgba(0,0,0,0.3);
+            border-left: 4px solid var(--primary);
+            border-radius: 4px;
+        }
+        
+        .rule-section h3 {
+            color: var(--secondary);
+        }
+        
+        footer {
+            background: linear-gradient(135deg, var(--dark), var(--primary));
+            color: white;
+            padding: 3rem 2rem;
+            text-align: center;
+            margin-top: 3rem;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 1rem;
+        }
+        
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-links a:hover {
+            color: var(--secondary);
+        }
+        
+        .social-icon {
+            display: inline-block;
+            margin: 0 10px;
+            transition: transform 0.3s ease;
+        }
+        
+        .social-icon:hover {
+            transform: scale(1.2) rotate(10deg);
+        }
+        
+        .disclaimer {
+            font-size: 0.8rem;
+            margin-top: 2rem;
+            color: rgba(255,255,255,0.7);
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .copyright {
+            opacity: 0.7;
+            font-size: 0.9rem;
+            margin-top: 1rem;
+        }
+        
+        .beyonce-drive-wrapper {
+            position: relative;
+            height: 120px;
+            margin-top: 2rem;
+            overflow: visible;
+        }
+
+        .beyonce-drive {
+            position: absolute;
+            bottom: 0;
+            width: 150px;
+            animation: drive-across 8s linear infinite;
+        }
+
+        @keyframes drive-across {
+            0% {
+                left: -200px;
+            }
+            40% {
+                left: calc(50% - 75px);
+            }
+            60% {
+                left: calc(50% - 75px);
+            }
+            100% {
+                left: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="animate__animated animate__fadeIn">
+        <img src="https://cdn.prod.website-files.com/67ca33b3a6021008db2fd785/67ca398384d016432ab21286_AAV_Submark_White.png" alt="AAV Logo" class="logo">
+        <h1 class="animate__animated animate__fadeInUp">Kendrick Lamar x SZA: Grand National Tour Sweepstakes</h1>
+        <p class="animate__animated animate__fadeInUp animate__delay-1s">Official Rules</p>
+    </header>
+    
+    <div class="container">
+        <img src="https://s3.amazonaws.com/outvote-static-assets/production/uploads/RDknB/1743641695/ImpactiveImage.png" alt="Kendrick Lamar x SZA: Grand National Tour" class="hero-image animate__animated animate__fadeIn">
+        
+        <div class="rules-content animate__animated animate__fadeInUp">
+            <h2>Official Sweepstakes Rules</h2>
+            <p><strong>Important:</strong> Please read these Official Rules before entering this sweepstakes.</p>
+            
+            <div class="rule-section">
+                <label for="Terms">Select The Section:</label>
+                <select name="Terms" id="Terms">
+                    <option value="Eligibility">Eligibility</option>
+                    <option value="Disclaimer">Disclaimer</option>
+                    <option value="Sweepstakes Period">Sweepstakes Period</option>
+                    <option value="Prize">Prize</option>
+                    <option value="Odds; Taxes; Etc">Odds; Taxes; Etc</option>
+                    <option value="How to Enter">How to Enter</option>
+                    <option value="Referral Terms">Referral Terms</option>
+                    <option value="Sweepstakes Rules">Sweepstakes Rules</option>
+                    <option value="GENERAL RELEASE">GENERAL RELEASE</option>
+                    <option value="Use of Winner Information">Use of Winner Information</option>
+                    <option value="Affidavit & Release">Affidavit & Release</option>
+                    <option value="Winner List">Winner List</option>
+                    <option value="Intellectual Property">Intellectual Property</option>
+                    <option value="Disputes">Disputes</option>
+                    <option value="Miscellaneous">Miscellaneous</option>
+                    <option value="Sponsor">Sponsor</option>
+                </select>
+                
+                <div id="selectedTerms" class="rule-section"></div>
+            </div>
+        </div>
+        
+        <div class="beyonce-drive-wrapper">
+            <div class="beyonce-drive">
+                <img src="https://s3.amazonaws.com/outvote-static-assets/production/uploads/RDknB/1743641695/ImpactiveImage.png" alt="Kendrick" style="width: 200px; height: auto;">
+            </div>
+        </div>
+    </div>
+    
+    <footer class="animate__animated animate__fadeIn animate__delay-2s">
+        <div class="footer-links">
+            <a href="https://www.aavsweeps.com/beyonce/cowboycarterrules.html">Official Rules</a>
+            <a href="https://allamericansvote.com/privacy-policy">Privacy Policy</a>
+        </div>
+        
+        <p class="disclaimer">
+            This contest is not affiliated with Kendrick Lamar, SZA, SONY or pglang, Top Dawg Entertainment, Cash App, or Live Nation.
+        </p>
+        
+        <p class="copyright">© 2025 All Americans Vote. All rights reserved.</p>
+    </footer>
+    
+    <script>
+        const selectElement = document.getElementById('Terms');
+        const selectedTermsDiv = document.getElementById('selectedTerms');
+
+        selectElement.addEventListener('change', function() {
+            const selectedValue = this.value;
+            let message = "";
+
+            if (selectedValue === "Eligibility") {
+                message = "<h3>Eligibility</h3><p>NO PURCHASE, PAYMENT, OR FINANCIAL CONTRIBUTION OF ANY KIND IS NECESSARY TO ENTER OR WIN THIS SWEEPSTAKES. PURCHASE, PAYMENT, OR FINANCIAL CONTRIBUTION WILL NOT INCREASE ODDS OF WINNING. SWEEPSTAKES VOID WHERE PROHIBITED. SWEEPSTAKES OPEN ONLY TO INDIVIDUAL UNITED STATES CITIZENS AND LAWFUL PERMANENT U.S. RESIDENTS OF THE FIFTY (50) UNITED STATES, THE DISTRICT OF COLUMBIA, AND PUERTO RICO, WHO ARE OVER THE AGE OF 18 (OR THE AGE OF MAJORITY UNDER APPLICABLE LAW). BUSINESSES, CORPORATIONS, NATIONAL BANKS, FEDERAL CONTRACTORS, FOREIGN NATIONALS, LABOR ORGANIZATIONS, OR OTHER ENTITIES ARE NOT ELIGIBLE TO ENTER NOR MAY ANY INDIVIDUAL ENTER ON BEHALF OF ANY SUCH INDIVIDUALS OR ENTITIES.</p>";
+            } else if (selectedValue === "Disclaimer") {
+                message = "<h3>Disclaimer</h3><p>Sponsor and its affiliates will not be responsible for: (a) any late, lost, misrouted, garbled or distorted, or damaged transmissions or entries; (b) telephone, electronic, hardware, software, network, Internet, or other computer or communications-related malfunctions or failures; (c) any Sweepstakes disruptions, injuries, losses, or damages caused by events beyond the control of Sponsor or by non-authorized human intervention; or (d) any printing or typographical errors in any materials associated with the Sweepstakes.</p>";
+            } else if (selectedValue === "Sweepstakes Period") {
+                message = "<h3>Sweepstakes Period</h3><p>The Sweepstakes starts at 4:00 PM on April 14, 2025 and ends at 11:59 PM (unless otherwise noted, all times are Eastern Standard Time) on April 27, 2025 (the 'Sweepstakes Period'). All entries must be received during the Sweepstakes Period to be eligible to win a Prize.</p>";
+            } else if (selectedValue === "Prize") {
+                message = "<h3>Prize</h3><p>One (1) winner will receive the following Prize (the 'Prize'): A pair of suite access tickets to the Cowboy Carter Tour in Washington, DC on July 4, 2025 including approximate retail value of $1,600.00.</p>";
+            } else if (selectedValue === "Odds; Taxes; Etc") {
+                message = "<h3>Odds; Taxes; Etc</h3><p>Odds of winning a Prize depend on the number of eligible entries received. ALL FEDERAL, STATE, AND LOCAL TAXES ASSOCIATED WITH THE RECEIPT OR USE OF ANY PRIZE ARE THE SOLE RESPONSIBILITY OF WINNER. All Prizes will be awarded.</p>";
+            } else if (selectedValue === "How to Enter") {
+                message = "<h3>How to Enter</h3><p>Participants may enter as follows: Free Online Entry Method: To enter via the free online entry method, visit https://links.impactive.io/t/x8j4jzff?start=1 or other web page specifically identified by Sponsor and fully complete and submit the online entry form during the Sweepstakes Period.</p>";
+            } else if (selectedValue === "Referral Terms") {
+                message = "<h3>Referral Terms</h3><p>Referrals are personal and should only be sent to individuals that you personally know and must be used only for personal and non-commercial purposes. The sharing of URLs outside of your warm network of personal connections is strictly prohibited.</p>";
+            } else if (selectedValue === "Sweepstakes Rules") {
+                message = "<h3>Sweepstakes Rules</h3><p>One (1) potential winner(s) will be selected by a random drawing from all eligible entries to be held by April 28, 2025. Sponsor may, at its option, conduct a background check on each potential winner.</p>";
+            } else if (selectedValue === "GENERAL RELEASE") {
+                message = "<h3>GENERAL RELEASE</h3><p>BY ENTERING THE SWEEPSTAKES, YOU RELEASE SPONSOR AND ALL RELEASED PARTIES FROM ANY LIABILITY WHATSOEVER, AND WAIVE ANY AND ALL CAUSES OF ACTION, RELATED TO ANY CLAIMS, COSTS, INJURIES, LOSSES, OR DAMAGES OF ANY KIND ARISING OUT OF OR IN CONNECTION WITH THE SWEEPSTAKES.</p>";
+            } else if (selectedValue === "Use of Winner Information") {
+                message = "<h3>Use of Winner Information</h3><p>Except where prohibited by law, the winner hereby grants the Sponsor and its representatives a perpetual, irrevocable, worldwide, royalty-free, non-exclusive and sub-licensable right and license to distribute, publicly display and use his/her name, photograph, voice, likeness and information about the prize award.</p>";
+            } else if (selectedValue === "Affidavit & Release") {
+                message = "<h3>Affidavit & Release</h3><p>As a condition of being awarded any Prize, winner may be required to execute and deliver to Sponsor a signed affidavit of eligibility and acceptance of these Official Rules and release of liability.</p>";
+            } else if (selectedValue === "Winner List") {
+                message = "<h3>Winner List; Rules Request</h3><p>For a copy of the winner list, send a stamped, self-addressed, business-size envelope after July 1, 2025, and before July 1, 2026, to Sponsor at the address listed below.</p>";
+            } else if (selectedValue === "Intellectual Property") {
+                message = "<h3>Intellectual Property Notice</h3><p>The Sweepstakes and all accompanying materials are copyright © 2025 by All Americans Vote (AAV). All rights reserved.</p>";
+            } else if (selectedValue === "Disputes") {
+                message = "<h3>Disputes and Jurisdiction</h3><p>The Sweepstakes is governed by, and will be construed in accordance with, the laws of the District of Columbia, without regard to its conflicts of law principles.</p>";
+            } else if (selectedValue === "Miscellaneous") {
+                message = "<h3>Miscellaneous</h3><p>Participants agree to be bound by these Official Rules and by the decisions of Sponsor, which are final and binding in all respects. Sponsor reserves the right to change these Official Rules at any time.</p>";
+            } else if (selectedValue === "Sponsor") {
+                message = "<h3>Sponsor</h3><p>All Americans Vote, PO Box 65705, Washington, D.C. 20035</p>";
+            } else {
+                message = "<p>Select a section from the dropdown to view its content.</p>";
+            }
+
+            selectedTermsDiv.innerHTML = message;
+        });
+
+        // Trigger change event to show initial content
+        selectElement.dispatchEvent(new Event('change'));
+    </script>
+</body>
+</html>

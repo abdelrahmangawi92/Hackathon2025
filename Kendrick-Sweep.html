@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="en" data-qb-installed="true">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Peekaboo 👀 - AAV Sweepstakes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <style>
+        :root {
+            --primary: #6C63FF;
+            --secondary: #FF6584;
+            --dark: #2D3748;
+            --light: #F7FAFC;
+            --accent: #48BB78;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', system-ui, sans-serif;
+        }
+        
+        body {
+            background-color: var(--light);
+            color: var(--dark);
+            overflow-x: hidden;
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--dark), var(--primary));
+            padding: 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .logo {
+            width: 120px;
+            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
+            transition: transform 0.3s ease;
+        }
+        
+        .logo:hover {
+            transform: scale(1.05) rotate(-5deg);
+        }
+        
+        h1 {
+            color: white;
+            font-size: 2.5rem;
+            margin: 1rem 0;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .tagline {
+            color: white;
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 3rem auto;
+            padding: 0 2rem;
+        }
+        
+        .intro {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .intro h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+        
+        .intro p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: var(--dark);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .sweep-card {
+            background: black;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            transform: translateY(0);
+            position: relative;
+            max-width: 600px;
+            margin: 2rem auto;
+        }
+        
+        .sweep-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1);
+        }
+        
+        .artist-image {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .sweep-card:hover .artist-image {
+            transform: scale(1.05);
+        }
+        
+        .card-content {
+            padding: 1.5rem;
+        }
+        
+        .card-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: var(--primary);
+        }
+        
+        .card-content p {
+            margin-bottom: 1.5rem;
+            line-height: 1.5;
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: white;
+        }
+        
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--primary);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+            height: 50px; 
+            text-align: center;
+        }
+
+        .btn:hover {
+            background: var(--secondary);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        footer {
+            background: linear-gradient(135deg, var(--dark), var(--primary));
+            color: white;
+            padding: 3rem 2rem;
+            text-align: center;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 1rem;
+        }
+        
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+        
+        /* Original form styles */
+        .SurveyActivityForm__StyledForm-sc-v48k1g-0 {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .FormInput__Wrapper-sc-1iqdzzb-0 {
+            margin-bottom: 1.5rem;
+        }
+        
+        .FormInput__Label-sc-1iqdzzb-1 {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+        
+        .ant-input-affix-wrapper {
+            border-radius: 8px !important;
+            padding: 10px 12px !important;
+            border: 1px solid #e2e8f0 !important;
+            transition: all 0.3s ease !important;
+        }
+        
+        .ant-input-affix-wrapper:hover {
+            border-color: var(--primary) !important;
+        }
+        
+        .ant-input {
+            border: none !important;
+            box-shadow: none !important;
+        }
+        
+        .ant-input:focus {
+            box-shadow: none !important;
+        }
+        
+        .ant-radio-wrapper {
+            display: flex;
+            align-items: center;
+            margin-bottom: 0.5rem;
+        }
+        
+        .ant-checkbox-wrapper {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 1rem;
+            }
+            
+            .sweep-card {
+                margin: 1rem auto;
+            }
+            
+            .artist-image {
+                height: 200px;
+            }
+        }
+    </style>
+    <!-- Original head content -->
+    <script async="" src="https://googletagmanager.com/gtm.js?id=G-XGWJ5RTRZR"></script>
+    <script>
+        (function(w,d,s,l,i){w[l]=w[l]||[];
+            w[l].push({'gtm.start': new Date().getTime(),event:'gtm.js'});
+            var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';
+            j.async=true;
+            j.src='https://googletagmanager.com/gtm.js?id='+i+dl+'';
+            
+            f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','G-XGWJ5RTRZR');</script>
+    <meta property="fb:app_id" content="1689524858021059">
+    <meta name="msapplication-config" content="none">
+    <meta name="description" content="AAV is giving you what you asked for! Enter for a chance to win (2) FLOOR TICKETS to see Kendrick Lamar &amp; SZA at the Grand National Tour, June 18th in Washington D.C.">
+    <meta name="keywords" content="peekaboo 👀">
+    <link rel="image_src" href="https://s3.amazonaws.com/outvote-static-assets/production/uploads/RDknB/1743641695/ImpactiveImage.png">
+    <meta property="og:title" content="Peekaboo 👀">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://app.impactive.io/campaigns/all-americans-vote/activities/xc5uvw25?start=0">
+    <meta property="og:description" content="AAV is giving you what you asked for!
+
+    Enter for a chance to win (2) FLOOR TICKETS to see Kendrick Lamar &amp; SZA at the Grand National Tour, June 18th in Washington D.C.">
+    <meta property="og:image" content="https://s3.amazonaws.com/outvote-static-assets/production/uploads/RDknB/1743641695/ImpactiveImage.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@joinimpactive">
+    <meta name="twitter:title" content="Peekaboo 👀">
+    <meta name="twitter:description" content="AAV is giving you what you asked for!
+
+    Enter for a chance to win (2) FLOOR TICKETS to see Kendrick Lamar &amp; SZA at the Grand National Tour, June 18th in Washington D.C.">
+    <meta name="twitter:image" content="https://s3.amazonaws.com/outvote-static-assets/production/uploads/RDknB/1743641695/ImpactiveImage.png">
+    <!-- Global Site Tag (gtag.js) - Google Analytics -->
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-106558259-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments) };
+        gtag('js', new Date());
+
+        gtag('config', 'UA-106558259-1');
+    </script>
+    <link rel="icon" type="image/x-icon" href="https://app.impactive.io/assets/favicon-c300470e61ad36d869a2e241fdff5a8fafac585c3f62d419b8b83309ca471b03.ico">
+    <meta name="csrf-param" content="authenticity_token">
+    <meta name="csrf-token" content="N5LrmyxvXSeQU7L0KGTUW2evWy1FH0gTm3OL95dHQDBVOtfpDsFj42zgdkLuISdGAVNycJ5fMP159Ug9qbaYOQ">
+    <script src="https://js.stripe.com/v3"></script>
+</head>
+
+<body data-new-gr-c-s-check-loaded="14.1232.0" data-gr-ext-installed="">
+    <noscript>
+        <iframe src="https://googletagmanager.com/ns.html?id=G-XGWJ5RTRZR"
+            height="0" width="0" style="display:none;visibility:hidden" id="tag-manager"></iframe>
+    </noscript>
+    
+    <div class="preloader web-preloader">
+        <div class="spinner">
+            <div class="cube1"></div>
+            <div class="cube2"></div>
+        </div>
+    </div>
+
+    <header class="animate__animated animate__fadeIn">
+        <img src="https://cdn.prod.website-files.com/67ca33b3a6021008db2fd785/67ca398384d016432ab21286_AAV_Submark_White.png" alt="AAV Logo" class="logo floating">
+        <h1 class="animate__animated animate__fadeInUp">Peekaboo 👀</h1>
+        <p class="tagline animate__animated animate__fadeInUp animate__delay-1s">AAV is giving you what you asked for!</p>
+    </header>
+
+    <div class="container">
+        <section class="intro animate__animated animate__fadeIn animate__delay-1s">
+            <h2>Win Concert Tickets</h2>
+            <p>Enter for a chance to win (2) FLOOR TICKETS to see Kendrick Lamar & SZA at the Grand National Tour, June 18th in Washington D.C.</p>
+        </section>
+
+        <div class="sweep-card animate__animated animate__fadeInUp">
+            <img src="https://s3.amazonaws.com/outvote-static-assets/production/uploads/RDknB/1743641695/ImpactiveImage.png" alt="Kendrick Lamar & SZA" class="artist-image">
+            <div class="card-content">
+                <h3>Enter the Sweepstakes</h3>
+                <p>Complete the form below for your chance to win!</p>
+                
+                <!-- Original form content -->
+                <div id="root">
+                    <div class="SurveyActivity__ActivityContainer-sc-chl7r8-0 cxjxq">
+                        <form class="SurveyActivityForm__StyledForm-sc-v48k1g-0 hnzRNC">
+                            <div class="styles__Container-sc-ke87mv-0 kDEujL">
+                                <div class="Card-sc-1nd077z-0 styles__StyledCard-sc-ke87mv-4 cPqXCV ziRKr">
+                                    <div class="SurveyActivityForm__TitleAndDescriptionWrapper-sc-v48k1g-1 kNZRUP">
+                                        <p class="styles__SubText-sc-ke87mv-3 beRfz">Complete your entry below</p>
+                                    </div>
+                                </div>
+                                <div class="Card-sc-1nd077z-0 styles__StyledCard-sc-ke87mv-4 styles__PaddedFlexCard-sc-ke87mv-5 cPqXCV ziRKr jRNZgR">
+                                    <div class="FormInput__Wrapper-sc-1iqdzzb-0 bGduqh">
+                                        <div class="FormInput__Label-sc-1iqdzzb-1 fJWTXG">First name</div>
+                                        <span class="ant-input-affix-wrapper FormInput__StyledField-sc-1iqdzzb-3 biPRbt">
+                                            <span class="ant-input-prefix">
+                                                <svg width="14" height="16" viewBox="0 0 14 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M7 8C9.13047 8 10.8571 6.23735 10.8571 4.0625C10.8571 1.88765 9.13047 0.125 7 0.125C4.86953 0.125 3.14286 1.88765 3.14286 4.0625C3.14286 6.23735 4.86953 8 7 8ZM9.7 8.98438H9.19676C8.52779 9.29814 7.78348 9.47656 7 9.47656C6.21652 9.47656 5.47522 9.29814 4.80324 8.98438H4.3C2.06406 8.98438 0.25 10.8362 0.25 13.1187V14.3984C0.25 15.2136 0.897879 15.875 1.69643 15.875H12.3036C13.1021 15.875 13.75 15.2136 13.75 14.3984V13.1187C13.75 10.8362 11.9359 8.98438 9.7 8.98438Z" fill="currentColor"></path>
+                                                </svg>
+                                            </span>
+                                            <input name="first_name" placeholder="First Name" class="ant-input" type="text" value="">
+                                        </span>
+                                    </div>
+                                    <div class="FormInput__Wrapper-sc-1iqdzzb-0 bGduqh">
+                                        <div class="FormInput__Label-sc-1iqdzzb-1 fJWTXG">Last name</div>
+                                        <span class="ant-input-affix-wrapper FormInput__StyledField-sc-1iqdzzb-3 biPRbt">
+                                            <span class="ant-input-prefix">
+                                                <svg width="14" height="16" viewBox="0 0 14 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M7 8C9.13047 8 10.8571 6.23735 10.8571 4.0625C10.8571 1.88765 9.13047 0.125 7 0.125C4.86953 0.125 3.14286 1.88765 3.14286 4.0625C3.14286 6.23735 4.86953 8 7 8ZM9.7 8.98438H9.19676C8.52779 9.29814 7.78348 9.47656 7 9.47656C6.21652 9.47656 5.47522 9.29814 4.80324 8.98438H4.3C2.06406 8.98438 0.25 10.8362 0.25 13.1187V14.3984C0.25 15.2136 0.897879 15.875 1.69643 15.875H12.3036C13.1021 15.875 13.75 15.2136 13.75 14.3984V13.1187C13.75 10.8362 11.9359 8.98438 9.7 8.98438Z" fill="currentColor"></path>
+                                                </svg>
+                                            </span>
+                                            <input name="last_name" placeholder="Last name" class="ant-input" type="text" value="">
+                                        </span>
+                                    </div>
+                                    <div class="FormInput__Wrapper-sc-1iqdzzb-0 bGduqh">
+                                        <div class="FormInput__Label-sc-1iqdzzb-1 fJWTXG">Email</div>
+                                        <span class="ant-input-affix-wrapper FormInput__StyledField-sc-1iqdzzb-3 biPRbt">
+                                            <span class="ant-input-prefix">
+                                                <span role="img" aria-label="mail" class="anticon anticon-mail">
+                                                    <svg viewBox="64 64 896 896" focusable="false" data-icon="mail" width="1em" height="1em" fill="currentColor" aria-hidden="true">
+                                                        <path d="M928 160H96c-17.7 0-32 14.3-32 32v640c0 17.7 14.3 32 32 32h832c17.7 0 32-14.3 32-32V192c0-17.7-14.3-32-32-32zm-80.8 108.9L531.7 514.4c-7.8 6.1-18.7 6.1-26.5 0L189.6 268.9A7.2 7.2 0 01194 256h648.8a7.2 7.2 0 014.4 12.9z"></path>
+                                                    </svg>
+                                                </span>
+                                            </span>
+                                            <input name="email" placeholder="name@email.com" class="ant-input" type="text" value="">
+                                        </span>
+                                    </div>
+                                    <div class="PhoneNumberInput__Wrapper-sc-1wan1sv-0 dcXFqS">
+                                        <div class="PhoneNumberInput__Label-sc-1wan1sv-2 huibJi">Phone number</div>
+                                        <div style="position: relative;">
+                                            <div class=" react-tel-input PhoneNumberInput__StyledField-sc-1wan1sv-5 gjOXpr">
+                                                <div class="special-label">Phone</div>
+                                                <input class="form-control " placeholder="(555) 345-6789" type="tel" name="phone" value="+1">
+                                                <div class="flag-dropdown " style="display: none;">
+                                                    <div class="selected-flag" title="United States: + 1" tabindex="0" role="button" aria-haspopup="listbox">
+                                                        <div class="flag us">
+                                                            <div class="arrow"></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="PhoneNumberInput__PrefixWrapper-sc-1wan1sv-1 klYYuY">
+                                                <span role="img" aria-label="phone" class="anticon anticon-phone">
+                                                    <svg viewBox="64 64 896 896" focusable="false" data-icon="phone" width="1em" height="1em" fill="currentColor" aria-hidden="true">
+                                                        <path d="M885.6 230.2L779.1 123.8a80.83 80.83 0 00-57.3-23.8c-21.7 0-42.1 8.5-57.4 23.8L549.8 238.4a80.83 80.83 0 00-23.8 57.3c0 21.7 8.5 42.1 23.8 57.4l83.8 83.8A393.82 393.82 0 01553.1 553 395.34 395.34 0 01437 633.8L353.2 550a80.83 80.83 0 00-57.3-23.8c-21.7 0-42.1 8.5-57.4 23.8L123.8 664.5a80.89 80.89 0 00-23.8 57.4c0 21.7 8.5 42.1 23.8 57.4l106.3 106.3c24.4 24.5 58.1 38.4 92.7 38.4 7.3 0 14.3-.6 21.2-1.8 134.8-22.2 268.5-93.9 376.4-201.7C828.2 612.8 899.8 479.2 922.3 344c6.8-41.3-6.9-83.8-36.7-113.8z"></path>
+                                                    </svg>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="FormDatePicker__Wrapper-sc-knwity-0 gJbTyQ">
+                                        <div class="FormDatePicker__Label-sc-knwity-1 cVOPVv">Date of Birth</div>
+                                        <div class="FormDatePicker__Relative-sc-knwity-5 eKHOuN">
+                                            <input name="date_of_birth" prefix="[object Object]" placeholder="Date of Birth" class="FormDatePicker__StyledField-sc-knwity-3 eclAst FormDatePicker__StyledInputMast-sc-knwity-4 eHFWfR" value="">
+                                            <div class="FormDatePicker__IconWrapper-sc-knwity-6 bSome">
+                                                <span role="img" aria-label="calendar" class="anticon anticon-calendar">
+                                                    <svg viewBox="64 64 896 896" focusable="false" data-icon="calendar" width="1em" height="1em" fill="currentColor" aria-hidden="true">
+                                                        <path d="M112 880c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V460H112v420zm768-696H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v176h800V216c0-17.7-14.3-32-32-32z"></path>
+                                                    </svg>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div></div>
+                                    <div class="VolunteerInfoFields__AddressesWrapper-sc-1lg7l39-0 fvoSfS">
+                                        <div class="AddressFormField__Wrapper-sc-850b1m-0 hTqbCP">
+                                            <div class="AddressFormField__Label-sc-850b1m-2 eCURHG">ADDRESS</div>
+                                            <div class="AddressFormField__Relative-sc-850b1m-4 ePWpVj">
+                                                <input autocomplete="new-password" id="address" name="address" placeholder="Street, City, State, Zip" type="search" class="AddressFormField__StyledAutocomplete-sc-850b1m-1 gaHeVA pac-target-input" value="">
+                                                <div class="AddressFormField__IconWrapper-sc-850b1m-5 cQRJsm">
+                                                    <span role="img" aria-label="home" class="anticon anticon-home">
+                                                        <svg viewBox="64 64 896 896" focusable="false" data-icon="home" width="1em" height="1em" fill="currentColor" aria-hidden="true">
+                                                            <path d="M946.5 505L534.6 93.4a31.93 31.93 0 00-45.2 0L77.5 505c-12 12-18.8 28.3-18.8 45.3 0 35.3 28.7 64 64 64h43.4V908c0 17.7 14.3 32 32 32H448V716h112v224h265.9c17.7 0 32-14.3 32-32V614.3h43.4c17 0 33.3-6.7 45.3-18.8 24.9-25 24.9-65.5-.1-90.5z"></path>
+                                                        </svg>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="FormInput__Wrapper-sc-1iqdzzb-0 bGduqh">
+                                            <div class="FormInput__Label-sc-1iqdzzb-1 fJWTXG">Address 2</div>
+                                            <span class="ant-input-affix-wrapper FormInput__StyledField-sc-1iqdzzb-3 biPRbt">
+                                                <span class="ant-input-prefix">
+                                                    <span role="img" aria-label="home" class="anticon anticon-home">
+                                                        <svg viewBox="64 64 896 896" focusable="false" data-icon="home" width="1em" height="1em" fill="currentColor" aria-hidden="true">
+                                                            <path d="M946.5 505L534.6 93.4a31.93 31.93 0 00-45.2 0L77.5 505c-12 12-18.8 28.3-18.8 45.3 0 35.3 28.7 64 64 64h43.4V908c0 17.7 14.3 32 32 32H448V716h112v224h265.9c17.7 0 32-14.3 32-32V614.3h43.4c17 0 33.3-6.7 45.3-18.8 24.9-25 24.9-65.5-.1-90.5z"></path>
+                                                        </svg>
+                                                    </span>
+                                                </span>
+                                                <input name="unit_number" placeholder="Apt/Suite/Other" class="ant-input" type="text" value="">
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="Card-sc-1nd077z-0 styles__StyledCard-sc-ke87mv-4 cPqXCV ziRKr">
+                                    <div class="QuestionCard__Title-sc-za3hm0-0 iDXVFs">What's your biggest priority right now?<span class="QuestionCard__Required-sc-za3hm0-1 cnaQxv">*</span></div>
+                                    <div>
+                                        <div class="ant-radio-group ant-radio-group-outline">
+                                            <div class="ant-space ant-space-vertical">
+                                                <div class="ant-space-item" style="margin-bottom: 8px;">
+                                                    <label class="ant-radio-wrapper RadioGroupFormPartial__StyledRadio-sc-afudlj-0 blEIky">
+                                                        <span class="ant-radio">
+                                                            <input name="question_answers[0].value" type="radio" class="ant-radio-input" value="TUTO">
+                                                            <span class="ant-radio-inner"></span>
+                                                        </span>
+                                                        <span>Living well: Brunch, Beyoncé, and a little escape</span>
+                                                    </label>
+                                                </div>
+                                                <div class="ant-space-item" style="margin-bottom: 8px;">
+                                                    <label class="ant-radio-wrapper RadioGroupFormPartial__StyledRadio-sc-afudlj-0 blEIky">
+                                                        <span class="ant-radio">
+                                                            <input name="question_answers[0].value" type="radio" class="ant-radio-input" value="Wellness">
+                                                            <span class="ant-radio-inner"></span>
+                                                        </span>
+                                                        <span>Feeling whole: Mind, body, and peace intact</span>
+                                                    </label>
+                                                </div>
+                                                <div class="ant-space-item" style="margin-bottom: 8px;">
+                                                    <label class="ant-radio-wrapper RadioGroupFormPartial__StyledRadio-sc-afudlj-0 blEIky">
+                                                        <span class="ant-radio">
+                                                            <input name="question_answers[0].value" type="radio" class="ant-radio-input" value="ROF">
+                                                            <span class="ant-radio-inner"></span>
+                                                        </span>
+                                                        <span>My people in power: Not just going viral, but making moves</span>
+                                                    </label>
+                                                </div>
+                                                <div class="ant-space-item">
+                                                    <label class="ant-radio-wrapper RadioGroupFormPartial__StyledRadio-sc-afudlj-0 blEIky">
+                                                        <span class="ant-radio">
+                                                            <input name="question_answers[0].value" type="radio" class="ant-radio-input" value="Black work money">
+                                                            <span class="ant-radio-inner"></span>
+                                                        </span>
+                                                        <span>Just making it: Rent paid, gas in the car, and one less thing to stress about</span>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="OptInCheckboxField__OptInSection-sc-9jk4fy-0 icarSE">
+                                    <label class="ant-checkbox-wrapper ant-checkbox-wrapper-checked OptInCheckboxField__StyledCheckbox-sc-9jk4fy-1 jPSzVX">
+                                        <span class="ant-checkbox ant-checkbox-checked">
+                                            <input name="opt_in" type="checkbox" class="ant-checkbox-input" value="" checked="">
+                                            <span class="ant-checkbox-inner"></span>
+                                        </span>
+                                        <span>
+                                            <span style="color: rgb(34, 34, 34);">By submitting this form, I authorize AAV (All Americans Vote) to send communication to me via email/text message. Message/data rates apply; text HELP for more info or STOP to opt-out at any time.</span>
+                                        </span>
+                                    </label>
+                                    <a href="https://www.aavsweeps.com/privacy-policy" target="_blank" class="OptInCheckboxField__PrivacyPolicyLink-sc-9jk4fy-2 eKGwa-d">Terms &amp; Privacy Policy</a>
+                                </div>
+                            </div>
+                            <div class="styles__Footer-sc-ke87mv-6 cCEJwj">
+                                <button type="submit" disabled="" class="ImpactiveButton__ImpactiveButtonInner-sc-b3eybn-0 kYWGTG SurveyActivityForm__StyledSubmitButton-sc-v48k1g-2 gBAfOe">
+                                    <div type="submit" disabled="" class="ImpactiveButton__ButtonText-sc-b3eybn-1 MrvpW SurveyActivityForm__StyledSubmitButton-sc-v48k1g-2 gBAfOe">Submit</div>
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <footer class="animate__animated animate__fadeIn animate__delay-2s">
+        <div class="footer-links">
+            <a href="https://www.aavsweeps.com/privacy-policy">Privacy Policy</a>
+        </div>
+        <p class="copyright">© 2025 AAV. All rights reserved.</p>
+    </footer>
+
+    <!-- Original scripts -->
+    <script src="https://app.impactive.io/packs/runtime-777d6f380b395ca4922a.js" defer="defer"></script>
+    <script src="https://app.impactive.io/packs/310-00a3376538cb6ff258f8.js" defer="defer"></script>
+    <script src="https://app.impactive.io/packs/503-45572b2d0f7d206c536c.js" defer="defer"></script>
+    <script src="https://app.impactive.io/packs/234-3dfef694b778f7547808.js" defer="defer"></script>
+    <script src="https://app.impactive.io/packs/272-a63e21771fc1922fc0d2.js" defer="defer"></script>
+    <script src="https://app.impactive.io/packs/123-d3a17f9293c0e1445dfa.js" defer="defer"></script>
+    <script src="https://app.impactive.io/packs/193-f8568eac745aebc0be8b.js" defer="defer"></script>
+    <script src="https://app.impactive.io/packs/57-4c7ee007d0f23bf88d5c.js" defer="defer"></script>
+    <script src="https://app.impactive.io/packs/66-9e181c3fb8a209154fb3.js" defer="defer"></script>
+    <script src="https://app.impactive.io/packs/101-aa983ee474f0120f83a3.js" defer="defer"></script>
+    <script src="https://app.impactive.io/packs/378-5b0cf4c2f334c12ec9fd.js" defer="defer"></script>
+    <script src="https://app.impactive.io/packs/273-0b0680592f6eda942bb3.js" defer="defer"></script>
+    <script src="https://app

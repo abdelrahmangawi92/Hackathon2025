@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en" data-qb-installed="true">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beyoncé | Cowboy Carter</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <style>
+        :root {
+            --primary: #6C63FF;
+            --secondary: #FF6584;
+            --dark: #2D3748;
+            --light: #F7FAFC;
+            --accent: #48BB78;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', system-ui, sans-serif;
+        }
+        
+        body {
+            background-color: var(--light);
+            color: var(--dark);
+            overflow-x: hidden;
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--dark), var(--primary));
+            padding: 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .navbar {
+            display: flex;
+            justify-content: center;
+            gap: 1rem; 
+        }
+        
+        .logo {
+            width: 120px;
+            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
+            transition: transform 0.3s ease;
+        }
+        
+        .logo:hover {
+            transform: scale(1.05) rotate(-5deg);
+        }
+        
+        h1 {
+            color: white;
+            font-size: 2.5rem;
+            margin: 1rem 0;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.1));
+        }
+        
+        .tagline {
+            color: white;
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 3rem auto;
+            padding: 0 2rem;
+        }
+        
+        .intro {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .intro h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+        
+        .intro p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: var(--dark);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .sweep-card {
+            background: black;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1));
+            transition: all 0.3s ease;
+            transform: translateY(0);
+            position: relative;
+            max-width: 800px;
+            margin: 2rem auto;
+        }
+        
+        .sweep-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1));
+        }
+        
+        .artist-image {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .sweep-card:hover .artist-image {
+            transform: scale(1.05);
+        }
+        
+        .card-content {
+            padding: 2rem;
+        }
+        
+        .card-content h3 {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+            color: var(--primary);
+        }
+        
+        .card-content p {
+            margin-bottom: 1.5rem;
+            line-height: 1.5;
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: white;
+        }
+        
+        .btn, .btn-outline {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--primary);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            margin: 0.5rem;
+        }
+
+        .btn:hover, .btn-outline:hover {
+            background: var(--secondary);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+        }
+        
+        .action-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+        
+        footer {
+            background: linear-gradient(135deg, var(--dark), var(--primary));
+            color: white;
+            padding: 3rem 2rem;
+            text-align: center;
+            margin-top: 3rem;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 1rem;
+        }
+        
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-links a:hover {
+            color: var(--secondary);
+        }
+        
+        .social-icon {
+            display: inline-block;
+            margin: 0 10px;
+            transition: transform 0.3s ease;
+        }
+        
+        .social-icon:hover {
+            transform: scale(1.2) rotate(10deg);
+        }
+        
+        .form-container {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            margin: 2rem auto;
+            max-width: 800px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: var(--dark);
+        }
+        
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+        
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            border-color: var(--primary);
+            outline: none;
+        }
+        
+        .radio-group {
+            margin-top: 1rem;
+        }
+        
+        .radio-option {
+            display: flex;
+            align-items: center;
+            margin-bottom: 0.5rem;
+        }
+        
+        .radio-option input {
+            margin-right: 0.5rem;
+        }
+        
+        .checkbox-group {
+            margin-top: 1rem;
+            display: flex;
+            align-items: center;
+        }
+        
+        .checkbox-group input {
+            margin-right: 0.5rem;
+        }
+        
+        .submit-btn {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: block;
+            width: 100%;
+            max-width: 300px;
+            margin: 2rem auto 0;
+        }
+        
+        .submit-btn:hover {
+            background: var(--secondary);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        
+        .animate__animated {
+            animation-duration: 1s;
+        }
+    </style>
+</head>
+<body>
+    <header class="animate__animated animate__fadeIn">
+        <img src="https://cdn.prod.website-files.com/67ca33b3a6021008db2fd785/67ca398384d016432ab21286_AAV_Submark_White.png" alt="AAV Logo" class="logo">
+        <h1 class="animate__animated animate__fadeInUp">Beyoncé | Cowboy Carter</h1>
+        <p class="tagline animate__animated animate__fadeInUp animate__delay-1s">She Coming! Enter for a chance to win (2) SUITE TICKETS</p>
+    </header>
+    
+    <div class="container">
+        <nav class="animate__animated animate__fadeIn animate__delay-1s navbar">
+            <a href="1stdraft.html" class="btn">Home</a>
+            <a href="privacy-policy.html" class="btn btn-outline">Privacy Policy</a>
+        </nav>
+        
+        <div class="sweep-card animate__animated animate__fadeIn">
+            <img src="https://s3.amazonaws.com/outvote-static-assets/production/uploads/RDknB/1743893458/03_ImpactiveForm.png" alt="Beyoncé" class="artist-image">
+            <div class="card-content">
+                <h3>Beyoncé</h3>
+                <p>(2) Suite Tickets | Cowboy Carter Tour - July 4th in Washington D.C.</p>
+                
+                <div class="form-container">
+                    <form>
+                        <div class="form-group">
+                            <label for="first_name">First name</label>
+                            <input type="text" id="first_name" name="first_name" placeholder="First Name">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="last_name">Last name</label>
+                            <input type="text" id="last_name" name="last_name" placeholder="Last Name">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" placeholder="name@email.com">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="phone">Phone number</label>
+                            <input type="tel" id="phone" name="phone" placeholder="(555) 345-6789">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="dob">Date of Birth</label>
+                            <input type="date" id="dob" name="date_of_birth">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="address">Address</label>
+                            <input type="text" id="address" name="address" placeholder="Street, City, State, Zip">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="unit">Address 2</label>
+                            <input type="text" id="unit" name="unit_number" placeholder="Apt/Suite/Other">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>What's your biggest priority right now? *</label>
+                            <div class="radio-group">
+                                <div class="radio-option">
+                                    <input type="radio" id="priority1" name="priority" value="TUTO">
+                                    <label for="priority1">Living well: Brunch, Beyoncé, and a little escape</label>
+                                </div>
+                                <div class="radio-option">
+                                    <input type="radio" id="priority2" name="priority" value="Wellness">
+                                    <label for="priority2">Feeling whole: Mind, body, and peace intact</label>
+                                </div>
+                                <div class="radio-option">
+                                    <input type="radio" id="priority3" name="priority" value="ROF">
+                                    <label for="priority3">My people in power: Not just going viral, but making moves</label>
+                                </div>
+                                <div class="radio-option">
+                                    <input type="radio" id="priority4" name="priority" value="Black work money">
+                                    <label for="priority4">Just making it: Rent paid, gas in the car, and one less thing to stress about</label>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="checkbox-group">
+                            <input type="checkbox" id="opt_in" name="opt_in" checked>
+                            <label for="opt_in">By submitting this form, I authorize All Americans Vote to send communication to me via email/text message. Message/data rates apply; text HELP for more info or STOP to opt-out at any time. <a href="https://aavsweeps.com/privacy-policy" target="_blank">Terms & Privacy Policy</a></label>
+                        </div>
+                        
+                        <button type="submit" class="submit-btn">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <footer class="animate__animated animate__fadeIn animate__delay-1s">
+        <div class="footer-links">
+            <a href="1stdraft.html">Home</a>
+            <a href="privacy-policy.html">Privacy Policy</a>
+        </div>
+        
+        <a href="https://www.instagram.com/allamericansvote/" class="social-icon">
+            <img src="https://cdn.prod.website-files.com/67ca33b3a6021008db2fd785/67db1c775c438c67d21e90d3_instagram-new.png" alt="Instagram" width="30">
+        </a>
+        
+        <p class="copyright">© 2025 AAV. All rights reserved.</p>
+    </footer>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Animation for form elements
+            const formElements = document.querySelectorAll('.form-group');
+            formElements.forEach((el, index) => {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(20px)';
+                el.style.transition = 'all 0.5s ease';
+                
+                setTimeout(() => {
+                    el.style.opacity = '1';
+                    el.style.transform = 'translateY(0)';
+                }, 100 * index);
+            });
+            
+            // Form submission
+            const form = document.querySelector('form');
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                alert('Thank you for your submission! Good luck!');
+                form.reset();
+            });
+        });
+    </script>
+</body>
+</html>
