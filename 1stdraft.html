@@ -7,11 +7,10 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
     <style>
         :root {
-            --primary: #6C63FF;
+            --primary: #7300E6;
             --secondary: #FF6584;
             --dark: #2D3748;
             --light: #F7FAFC;
-            --accent: #48BB78;
         }
         
         * {
@@ -237,7 +236,7 @@
             display: flex;
             gap: 1rem;
         }
-        
+
         footer {
             background: linear-gradient(135deg, var(--dark), var(--primary));
             color: white;
@@ -355,6 +354,19 @@
     margin-top: 20px;
 }
 
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+
 .card-content {
     z-index: 2;
     position: relative;
@@ -382,14 +394,7 @@
     </header>
     <div class="container">
         <nav class="animate_animated animate__fadeIn animate__delay-2s navbar">
-            <a href="1stdraft.html" class="btn">Home</a>
-            <div class="dropdown">
-                <button class="btn dropdown-btn">Rules</button>
-                <div class="dropdown-content">
-                    <a href="kendrick/kendrick-rules.html">Kendrick</a>
-                    <a href="beyonce/cowboycarterrules.html">Beyoncé</a>
-                </div>
-            </div>
+            <a href="#" class="btn">Home</a>
             <a href="privacy-policy.html" class="btn btn-outline">Privacy Policy</a>
         </nav>
     </div>
@@ -403,16 +408,19 @@
         <div class="sweep-card animate__animated animate__fadeInLeft">
             <img src="images/Beyonce_Webflow.png" alt="Beyoncé" class="artist-image">
             <div class="card-content">
-                <h3>Beyoncé</h3>
+                <h3 style="color: #A142FF">Beyoncé</h3>
                 <p>(2) Suite Tickets | Cowboy Carter Tour</p>
                 <div class="action-buttons">
                     <a href="https://app.impactive.io/campaigns/all-americans-vote/activities/4rgbgcs2" class="btn">Enter Now</a>
-                    <a href="beyonce/cowboycarterrules.html" class="btn btn-outline">Rules</a>
+                    <a href="Rules2.html" class="btn btn-outline">Rules</a>
                     <img src="music note.png" id="beyonceMusicNote" alt="Music Note" style="cursor:pointer;" />
                     <audio id="beyonceMusicPlayer" preload="auto">
                     <source src="Beyoncé - Halo.mp3" type="audio/mp3">
                     Your browser does not support the audio element.
                     </audio>
+                    <p class="sr-only" aria-hidden="false">
+                        <strong>Transcript:</strong> "Halo" by Beyoncé.
+                    </p>
                     <script type="text/javascript">
                         var beyonceMusicNote = document.getElementById('beyonceMusicNote');
                         var beyonceMusicPlayer = document.getElementById('beyonceMusicPlayer');
@@ -427,7 +435,7 @@
                 </div>
                 <div class="centered-card shimmer">
                     <div class="image-container">
-                        <img src="beyonce.png" alt="Beyoncé" />
+                        <img src="beyonce.png" alt="Beyonce" />
                     </div>
                 </div>
             </div>
@@ -435,16 +443,19 @@
     <div class="sweep-card animate__animated animate__fadeInRight">
         <img src="images\Kendrick_Web_1.png" alt="Kendrick Lamar & SZA" class="artist-image">
             <div class="card-content">
-                <h3>Kendrick Lamar & SZA</h3>
+                <h3 style="color: #A142FF">Kendrick Lamar & SZA</h3>
                     <p>(2) Floor Tickets | Grand National Tour</p>
                     <div class="action-buttons">
                         <a href="https://links.impactive.io/t/p1nz3t7d?start=0" class="btn">Enter Now</a>
-                        <a href="kendrick/kendrick-rules.html" class="btn btn-outline">Rules</a>
+                        <a href="Rules.html" class="btn btn-outline">Rules</a>
                         <img src="music note.png" id="kendrickMusicNote" alt="Music Note" style="cursor:pointer;" />
                         <audio id="kendrickMusicPlayer" preload="auto">
                         <source src="Not Like Us.mp3" type="audio/mp3">
                         Your browser does not support the audio element.
                         </audio>
+                        <p class="sr-only" aria-hidden="false">
+                            <strong>Transcript:</strong> "Not Like Us" by Kendrick Lamar.
+                        </p>
                         <script type="text/javascript">
                             var kendrickMusicNote = document.getElementById('kendrickMusicNote');
                             var kendrickMusicPlayer = document.getElementById('kendrickMusicPlayer');
