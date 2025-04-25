@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AAV Sweepstakes - Win Concert Tickets</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <style>
+        :root {
+            --primary: #6C63FF;
+            --secondary: #FF6584;
+            --dark: #2D3748;
+            --light: #F7FAFC;
+            --accent: #48BB78;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', system-ui, sans-serif;
+        }
+        
+        body {
+            background-color: var(--light);
+            color: var(--dark);
+            overflow-x: hidden;
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--dark), var(--primary));
+            padding: 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .navbar {
+            display: flex;
+            justify-content: center;
+            gap: 1rem; 
+        }
+        
+        .logo {
+            width: 120px;
+            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
+            transition: transform 0.3s ease;
+        }
+        
+        .logo:hover {
+            transform: scale(1.05) rotate(-5deg);
+        }
+        
+        h1 {
+            color: white;
+            font-size: 2.5rem;
+            margin: 1rem 0;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .tagline {
+            color: white;
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 3rem auto;
+            padding: 0 2rem;
+        }
+        
+        .intro {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .intro h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+        
+        .intro p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: var(--dark);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .sweeps-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+        
+        .sweep-card {
+            background: black;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            transform: translateY(0);
+            position: relative;
+        }
+        
+        .sweep-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1);
+        }
+        
+        .artist-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .sweep-card:hover .artist-image {
+            transform: scale(1.05);
+        }
+        
+        .card-content {
+            padding: 1.5rem;
+        }
+        
+        .card-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: var(--primary);
+        }
+        
+        .card-content p {
+            margin-bottom: 1.5rem;
+            line-height: 1.5;
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: white;
+        }
+        
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-btn {
+            background: transparent;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .dropdown-btn:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: white;
+            min-width: 160px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .dropdown-content a {
+            color: var(--dark);
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            transition: background-color 0.3s ease;
+        }
+
+        .dropdown-content a:hover {
+            background-color: var(--primary);
+            color: white;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .btn:hover {
+            background: var(--secondary);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        
+        .btn, .btn-outline {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--primary);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            width: 150px;
+            height: 50px; 
+            text-align: center;
+        }
+
+        .btn:hover, .btn-outline:hover {
+            background: var(--secondary);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn-outline {
+            background: var(--primary);
+            color: white;
+            border: none;
+        }
+        
+        .btn-outline:hover {
+            background: var(--primary);
+            color: white;
+        }
+        
+        .action-buttons {
+            display: flex;
+            gap: 1rem;
+        }
+        
+        footer {
+            background: linear-gradient(135deg, var(--dark), var(--primary));
+            color: white;
+            padding: 3rem 2rem;
+            text-align: center;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 1rem;
+        }
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+        
+        .social-icon {
+            display: inline-block;
+            margin: 0 10px;
+            transition: transform 0.3s ease;
+        }
+        
+        .social-icon:hover {
+            transform: scale(1.2) rotate(10deg);
+        }
+        
+        .kendrick-drive-wrapper {
+            position: relative;
+            height: 120px;
+            margin-top: 2rem;
+            overflow: visible;
+        }
+
+        .kendrick-drive {
+            position: absolute;
+            bottom: 0;
+            width: 150px;
+            animation: drive-across 8s linear infinite;
+        }
+
+        .kendrick-drive img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        @keyframes drive-across {
+            0% {
+                left: -200px;
+            }
+            40% {
+                left: calc(50% - 75px);
+            }
+            60% {
+                left: calc(50% - 75px);
+            }
+            100% {
+                left: 100%;
+            }
+        }
+
+    .centered-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 20px;
+    max-width: 400px;
+    margin: 40px auto;
+    border-radius: 16px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+.shimmer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    height: 100%;
+    width: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    animation: shimmer 2s infinite;
+    z-index: 1;
+    pointer-events: none;
+}
+
+@keyframes shimmer {
+    0% {
+        left: -100%;
+    }
+    100% {
+        left: 100%;
+    }
+}
+
+.image-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    z-index: 2;
+}
+
+.image-container img {
+    max-width: 100%;
+    max-height: 180px;
+    border-radius: 10px;
+    object-fit: cover;
+    margin-top: 20px;
+}
+
+.card-content {
+    z-index: 2;
+    position: relative;
+}
+
+#beyonceMusicNote, #kendrickMusicNote {
+    background: transparent;
+    color: var(--primary);
+    border: 2px solid var(--primary);
+    padding: 0.75rem 1.5rem;
+    border-radius: 50px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    width: 50px;
+    height: 50px;
+}
+    </style>
+</head>
+<body>
+    <header class="animate__animated animate__fadeIn">
+        <a href="1stdraft.html"><img src="https://cdn.prod.website-files.com/67ca33b3a6021008db2fd785/67ca398384d016432ab21286_AAV_Submark_White.png" alt="AAV Logo" class="logo floating"></a>
+        <h1 class="animate__animated animate__fadeInUp">AAV Sweepstakes</h1>
+        <p class="tagline animate__animated animate__fadeInUp animate__delay-1s">We got you! We got us.</p>
+    </header>
+    <div class="container">
+        <nav class="animate_animated animate__fadeIn animate__delay-2s navbar">
+            <a href="1stdraft.html" class="btn">Home</a>
+            <div class="dropdown">
+                <button class="btn dropdown-btn">Rules</button>
+                <div class="dropdown-content">
+                    <a href="Rules.html">Kendrick</a>
+                    <a href="Rules2.html">Beyoncé</a>
+                </div>
+            </div>
+            <a href="privacy-policy.html" class="btn btn-outline">Privacy Policy</a>
+        </nav>
+    </div>
+    <div class="container">
+        <section class="intro animate__animated animate__fadeIn animate__delay-1s">
+            <h2>Feeling Lucky?</h2>
+            <p>2025 has been wild already, but what if it didn't have to be? Enter for a chance to win tickets to the biggest concerts & festivals of the year.</p>
+        </section>
+        
+    <div class="sweeps-grid">
+        <div class="sweep-card animate__animated animate__fadeInLeft">
+            <img src="images/Beyonce_Webflow.png" alt="Beyoncé" class="artist-image">
+            <div class="card-content">
+                <h3>Beyoncé</h3>
+                <p>(2) Suite Tickets | Cowboy Carter Tour</p>
+                <div class="action-buttons">
+                    <a href="Beyonce-Transition.html" class="btn">Enter Now</a>
+                    <a href="Rules2.html" class="btn btn-outline">Rules</a>
+                    <img src="music note.png" id="beyonceMusicNote" alt="Music Note" style="cursor:pointer;" />
+                    <audio id="beyonceMusicPlayer" preload="auto">
+                    <source src="Beyoncé - Halo.mp3" type="audio/mp3">
+                    Your browser does not support the audio element.
+                    </audio>
+                    <script type="text/javascript">
+                        var beyonceMusicNote = document.getElementById('beyonceMusicNote');
+                        var beyonceMusicPlayer = document.getElementById('beyonceMusicPlayer');
+                        beyonceMusicNote.addEventListener('click', function() {
+                            if (beyonceMusicPlayer.paused) {
+                                beyonceMusicPlayer.play();
+                            } else {
+                                beyonceMusicPlayer.pause();
+                            }
+                        });
+                    </script>
+                </div>
+                <div class="centered-card shimmer">
+                    <div class="image-container">
+                        <img src="beyonce.png" alt="Beyoncé" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    <div class="sweep-card animate__animated animate__fadeInRight">
+        <img src="images\Kendrick_Web_1.png" alt="Kendrick Lamar & SZA" class="artist-image">
+            <div class="card-content">
+                <h3>Kendrick Lamar & SZA</h3>
+                    <p>(2) Floor Tickets | Grand National Tour</p>
+                    <div class="action-buttons">
+                        <a href="Kendrick transition.html" class="btn">Enter Now</a>
+                        <a href="Rules.html" class="btn btn-outline">Rules</a>
+                        <img src="music note.png" id="kendrickMusicNote" alt="Music Note" style="cursor:pointer;" />
+                        <audio id="kendrickMusicPlayer" preload="auto">
+                        <source src="Not Like Us.mp3" type="audio/mp3">
+                        Your browser does not support the audio element.
+                        </audio>
+                        <script type="text/javascript">
+                            var kendrickMusicNote = document.getElementById('kendrickMusicNote');
+                            var kendrickMusicPlayer = document.getElementById('kendrickMusicPlayer');
+                            kendrickMusicNote.addEventListener('click', function() {
+                                if (kendrickMusicPlayer.paused) {
+                                    kendrickMusicPlayer.play();
+                                } else {
+                                    kendrickMusicPlayer.pause();
+                                }
+                            });
+                        </script>
+                    </div>
+                    <div class="kendrick-drive-wrapper">
+                        <div class="kendrick-drive">
+                            <img src="kendrik.png" alt="Pixel Car" style="width: 200px; height: auto;">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <footer class="animate__animated animate__fadeIn animate__delay-2s">
+        <a href="https://www.instagram.com/allamericansvote/" class="social-icon">
+            <img src="https://cdn.prod.website-files.com/67ca33b3a6021008db2fd785/67db1c775c438c67d21e90d3_instagram-new.png" alt="Instagram" width="30">
+        </a>
+        
+        <div class="footer-links">
+            <a href="#">Home</a>
+            <a href="privacy-policy.html">Privacy Policy</a>
+        </div>
+        
+        <p class="copyright">© 2025 AAV. All rights reserved.</p>
+    </footer>
+    
+    <script>
+        function createParticles() {
+            const container = document.getElementById('particles');
+            const particleCount = 20;
+            
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.classList.add('particle');
+                
+                const size = Math.random() * 10 + 5;
+                const posX = Math.random() * 100;
+                const posY = Math.random() * 100;
+                const delay = Math.random() * 5;
+                const duration = Math.random() * 10 + 10;
+                const opacity = Math.random() * 0.5 + 0.2;
+                
+                particle.style.width = `${size}px`;
+                particle.style.height = `${size}px`;
+                particle.style.left = `${posX}%`;
+                particle.style.top = `${posY}%`;
+                particle.style.animationDelay = `${delay}s`;
+                particle.style.animationDuration = `${duration}s`;
+                particle.style.opacity = opacity;
+                
+                container.appendChild(particle);
+            }
+        }
+        
+        document.querySelectorAll('.sweep-card').forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.querySelector('.btn').classList.add('animate__pulse');
+            });
+            
+            card.addEventListener('mouseleave', () => {
+                card.querySelector('.btn').classList.remove('animate__pulse');
+            });
+        });
+        
+        document.addEventListener('DOMContentLoaded', () => {
+            createParticles();
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animate__animated', 'animate__fadeInUp');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            document.querySelectorAll('.sweep-card, .intro').forEach(el => {
+                observer.observe(el);
+            });
+        });
+    </script>
+</body>
+</html>
